@@ -1,0 +1,19 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+names_list = []
+
+@app.post("/name")
+def add_name(name: str):
+    names_list.append(name)
+    return {
+        "message": "Name added",
+        "all_names": names_list
+    }
+
+@app.get("/names")
+def get_names():
+    return {
+        "names": names_list
+    }
