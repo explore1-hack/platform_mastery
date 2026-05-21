@@ -1,7 +1,11 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
+class basemodel(BaseModel):
+    name: str
+    
 names_list = []
 
 @app.post("/name")
